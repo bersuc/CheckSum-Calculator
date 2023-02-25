@@ -4,6 +4,8 @@ Fix Protocol CheckSum Calculator
 
 ## How to use it
 
+Used as reference: https://stackoverflow.com/questions/32708068/how-to-calculate-checksum-in-fix-manually
+
 - [node.js] v19.7.0
 
 ```sh
