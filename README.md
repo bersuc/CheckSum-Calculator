@@ -1,4 +1,4 @@
-# CheckSum-Calculator
+# CheckSum Calculator for FIX Protocol Messages
 
 Fix Protocol CheckSum Calculator
 
