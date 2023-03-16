@@ -7,13 +7,16 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 )
 
 func main() {
-
-	var arg1 = os.Args[1]
 	var soma = 0
+	if len(os.Args) < 2 {
+		log.Fatal("Need to provide fix message as argument")
+	}
+	var arg1 = os.Args[1]
 	for _, c := range arg1 {
 		if string(c) == "|" {
 			soma += 1
