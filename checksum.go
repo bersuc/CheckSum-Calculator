@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -18,11 +19,12 @@ func main() {
 	readFile()
 }
 
-// Read the messages.txt file and send to Chacksum calculation function
+// Read the messages.txt file and send to Checksum calculation function
 func readFile() {
 	mydir, err := os.Getwd()
 	check(err)
-	infos, err := os.ReadFile(mydir + "\\messages.txt")
+	p := filepath.Join(mydir, "messages.txt")
+	infos, err := os.ReadFile(p)
 	check(err)
 	if len(infos) != 0 {
 		messages := strings.Split(string(infos), "\r\n")
