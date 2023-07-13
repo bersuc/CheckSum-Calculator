@@ -24,10 +24,15 @@ func readFile() {
 	mydir, err := os.Getwd()
 	check(err)
 	p := filepath.Join(mydir, "messages.txt")
-	infos, err := os.ReadFile(p)
+	file, err := os.Open(p)
 	check(err)
+	defer file.Close()
+
+	infos, err := os.ReadFile(p)
 	if len(infos) != 0 {
-		messages := strings.Split(string(infos), "\r\n")
+		messages := strings.FieldsFunc(string(infos), func(r rune) bool {
+			return r == '\r' || r == '\n'
+		})
 		calcCheckSum(messages)
 	} else {
 		err := errors.New("No line in file. Please follow the steps on docs")
